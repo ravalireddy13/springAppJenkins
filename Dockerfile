@@ -1,11 +1,4 @@
-FROM amazoncorretto:22
-
-LABEL version="1.0"
-
-EXPOSE 8080:8080
-
-WORKDIR /app
-
-COPY target/demo-0.0.1-SNAPSHOT.jar /app/docker-demo.jar
-
-ENTRYPOINT ["java", "-jar", "docker-demo.jar"]
+FROM openjdk:8
+EXPOSE 8080
+ADD target/users-backend.jar users-backend.jar
+ENTRYPOINT ["java","-jar","/users-backend.jar"]
