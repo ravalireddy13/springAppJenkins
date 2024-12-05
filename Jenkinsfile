@@ -4,6 +4,12 @@ pipeline {
         maven 'maven3'
     }
     stages {
+    stage('Verify Tools') {
+        steps {
+            bat 'mvn -version'
+            bat 'docker --version'
+        }
+    }
         stage('Checkout Code') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [],
