@@ -12,13 +12,13 @@ pipeline {
         }
         stage('Build with Maven') {
             steps {
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t ravalireddy13/users-backend .'
+                    bat 'docker build -t ravalireddy13/users-backend .'
                 }
             }
         }
